@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Core Corporate Visual Primitives */
+  --color-brand-dark: #0f172a;
+  --color-brand-surface: #1e293b;
+  --color-brand-accent: #6366f1;
+  --color-brand-accent-hover: #4f46e5;
+
+  /* Semantic Urgency Status Visuals */
+  --color-status-todo: #64748b;
+  --color-status-inprogress: #0ea5e9;
+  --color-status-done: #10b981;
+  --color-status-low: #22c55e;
+  --color-status-medium: #f59e0b;
+  --color-status-high: #ef4444;
+
+  /* Explicit Typography token configuration */
+  --font-sans: var(--font-inter), sans-serif;
+
+  /* Elevation Shadows */
+  --shadow-card:
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px 2px rgba(99, 102, 241, 0.15);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: #090d16;
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom modern scrollbars for scrollable task boards */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }
